@@ -10,27 +10,37 @@ function computerPlay(){
 
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toUpperCase();
-    console.log(computerSelection)
-    if (playerSelection === computerSelection) return "Tie!"
+    if (playerSelection === computerSelection) return "The round is a Tie!"
 
     //Check all cases where the computer wins
     if(computerSelection === "ROCK" && playerSelection === "SCISSORS"
     ||  computerSelection === "PAPER" && playerSelection === "ROCK"
     ||  computerSelection === "SCISSORS" && playerSelection === "PAPER"){
-        return `You Lose! ${computerSelection} beats ${playerSelection}`
+        computerScore++;
+        return `You Lose the Round! ${computerSelection} beats ${playerSelection}`
     }
     //Check all cases where the player wins
     if (playerSelection === "ROCK" && computerSelection === "SCISSORS"
     ||  playerSelection === "PAPER" && computerSelection === "ROCK"
     ||  playerSelection === "SCISSORS" && computerSelection === "PAPER"){
-        return `You Win! ${playerSelection} beats ${computerSelection}`
+        
+        playerScore++;
+        return `You Win the Round! ${playerSelection} beats ${computerSelection}`
     }
-        return "Invalid Input!"
+        return "Invalid Input! No one wins!"
 }
 
 function game(){
+    //Play five rounds
     for (let i = 0; i < 5; i++){
-        
-        playRound();
+
+        console.log(playRound(prompt("ROCK, PAPER OR SCISSORS: "), computerPlay()))
     }
+    if (playerScore === computerScore) {console.log(`Tie! ${playerScore} to ${computerScore}`)}
+    else{
+        (playerScore>computerScore) ? console.log(`Player wins ${playerScore} to ${computerScore}`) : console.log(`Computer wins ${computerScore} to ${playerScore}`)   
+    }
+
+    playerScore = 0;
+    computerScore = 0;
 }
