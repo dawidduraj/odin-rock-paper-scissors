@@ -9,7 +9,7 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection){
-    playerSelection = playerSelection.toUpperCase();
+    if (playerSelection !== null) playerSelection = playerSelection.toUpperCase();
     if (playerSelection === computerSelection) return "The round is a Tie!"
 
     //Check all cases where the computer wins
@@ -44,3 +44,5 @@ function game(){
     playerScore = 0;
     computerScore = 0;
 }
+
+game();
