@@ -1,5 +1,13 @@
 let playerScore = 0, computerScore = 0;
 
+const buttons = document.querySelectorAll(".choice");
+buttons.forEach(button => {
+    button.addEventListener("click", () =>{
+        let result = playRound(button.id, computerPlay());
+        console.log(result);
+    });
+});
+
 //Generate Computer Pick
 function computerPlay(){
     let random = Math.random();
@@ -9,8 +17,17 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection){
+
+    const player = document.querySelector("#player");
+    const computer = document.querySelector("#computer");
+    
     if (playerSelection !== null) playerSelection = playerSelection.toUpperCase();
+
+
+
+
     if (playerSelection === computerSelection) return "The round is a Tie!"
+
 
     //Check all cases where the computer wins
     if(computerSelection === "ROCK" && playerSelection === "SCISSORS"
@@ -32,17 +49,18 @@ function playRound(playerSelection, computerSelection){
 
 function game(){
     //Play five rounds
-    for (let i = 0; i < 5; i++){
+    //for (let i = 0; i < 5; i++){
 
         //console.log(playRound(prompt("ROCK, PAPER OR SCISSORS: "), computerPlay()))
-    }
-    if (playerScore === computerScore) {console.log(`Tie! ${playerScore} to ${computerScore}`)}
-    else{
-        (playerScore>computerScore) ? console.log(`Player wins ${playerScore} to ${computerScore}`) : console.log(`Computer wins ${computerScore} to ${playerScore}`)   
-    }
+    //}
+    //if (playerScore === computerScore) {console.log(`Tie! ${playerScore} to ${computerScore}`)}
+    //else{
+        //(playerScore>computerScore) ? console.log(`Player wins ${playerScore} to ${computerScore}`) : console.log(`Computer wins ${computerScore} to ${playerScore}`)   
+    //}
 
-    playerScore = 0;
-    computerScore = 0;
+    //playerScore = 0;
+    //computerScore = 0;
 }
 
-game();
+//game();
+

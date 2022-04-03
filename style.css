@@ -60,10 +60,9 @@ button{
     transition: all 0.25s;
 }
 
-.choice{
+h1{
     text-align: center;
 }
-
 button:hover{
     transform: scale(1.3);
 }
