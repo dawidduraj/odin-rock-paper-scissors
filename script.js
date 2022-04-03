@@ -64,9 +64,6 @@ function updateChoice(player, choice){
     }
 }
 
-function delay(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
-}
 function checkWinner(){
 }
 
