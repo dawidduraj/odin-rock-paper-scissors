@@ -5,3 +5,16 @@
     color: white;
     background-color: #191E29;
 }
+
+body{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    padding-bottom: 3px;
+    border-bottom: 2px solid #01C380;
+}
