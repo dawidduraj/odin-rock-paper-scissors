@@ -17,13 +17,12 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection){
-
     const player = document.querySelector("#player");
     const computer = document.querySelector("#computer");
-    
+
     if (playerSelection !== null) playerSelection = playerSelection.toUpperCase();
-
-
+    updateChoice(player,playerSelection);
+    updateChoice(computer, computerSelection);
 
 
     if (playerSelection === computerSelection) return "The round is a Tie!"
@@ -47,20 +46,28 @@ function playRound(playerSelection, computerSelection){
         return "Invalid Input! No one wins!"
 }
 
-function game(){
-    //Play five rounds
-    //for (let i = 0; i < 5; i++){
-
-        //console.log(playRound(prompt("ROCK, PAPER OR SCISSORS: "), computerPlay()))
-    //}
-    //if (playerScore === computerScore) {console.log(`Tie! ${playerScore} to ${computerScore}`)}
-    //else{
-        //(playerScore>computerScore) ? console.log(`Player wins ${playerScore} to ${computerScore}`) : console.log(`Computer wins ${computerScore} to ${playerScore}`)   
-    //}
-
-    //playerScore = 0;
-    //computerScore = 0;
+function updateChoice(player, choice){
+    switch (choice)
+    {
+        case "ROCK":
+            player.textContent = "🗻";
+            break;
+        case "PAPER":
+            player.textContent = "📄";
+            break;
+        case "SCISSORS":
+            player.textContent = "✂️";
+            break;
+        default:
+            player.textContent = "❔";
+            break; 
+    }
 }
 
-//game();
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+function checkWinner(){
+}
+
 
