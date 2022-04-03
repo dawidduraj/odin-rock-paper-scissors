@@ -1,3 +1,8 @@
+const player = document.querySelector("#player");
+const computer = document.querySelector("#computer");
+const playerScoreUI = document.querySelector("#playerScore");
+const computerScoreUI = document.querySelector("#computerScore");
+
 let playerScore = 0, computerScore = 0;
 
 const buttons = document.querySelectorAll(".choice");
@@ -17,8 +22,6 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection){
-    const player = document.querySelector("#player");
-    const computer = document.querySelector("#computer");
 
     if (playerSelection !== null) playerSelection = playerSelection.toUpperCase();
     updateChoice(player,playerSelection);
@@ -32,7 +35,10 @@ function playRound(playerSelection, computerSelection){
     if(computerSelection === "ROCK" && playerSelection === "SCISSORS"
     ||  computerSelection === "PAPER" && playerSelection === "ROCK"
     ||  computerSelection === "SCISSORS" && playerSelection === "PAPER"){
+        
         computerScore++;
+        updateScore();
+        checkWinner();
         return `You Lose the Round! ${computerSelection} beats ${playerSelection}`
     }
     //Check all cases where the player wins
@@ -41,6 +47,8 @@ function playRound(playerSelection, computerSelection){
     ||  playerSelection === "SCISSORS" && computerSelection === "PAPER"){
         
         playerScore++;
+        updateScore();
+        checkWinner();
         return `You Win the Round! ${playerSelection} beats ${computerSelection}`
     }
         return "Invalid Input! No one wins!"
@@ -62,6 +70,11 @@ function updateChoice(player, choice){
             player.textContent = "❔";
             break; 
     }
+}
+
+function updateScore(){
+    playerScoreUI.textContent = `Player: ${playerScore}`;
+    computerScoreUI.textContent = `Computer: ${computerScore}`;
 }
 
 function checkWinner(){
