@@ -34,7 +34,7 @@ function game(){
     //Play five rounds
     for (let i = 0; i < 5; i++){
 
-        console.log(playRound(prompt("ROCK, PAPER OR SCISSORS: "), computerPlay()))
+        //console.log(playRound(prompt("ROCK, PAPER OR SCISSORS: "), computerPlay()))
     }
     if (playerScore === computerScore) {console.log(`Tie! ${playerScore} to ${computerScore}`)}
     else{
