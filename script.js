@@ -1,5 +1,6 @@
 const player = document.querySelector("#player");
 const computer = document.querySelector("#computer");
+const winner = document.querySelector("#winner");
 const playerScoreUI = document.querySelector("#playerScore");
 const computerScoreUI = document.querySelector("#computerScore");
 

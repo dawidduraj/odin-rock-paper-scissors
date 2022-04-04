@@ -16,7 +16,8 @@ body{
     align-items: center;
 }
 .results{
-    margin: 30px 0px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     display: flex;
     gap: 30px;
 }
@@ -69,4 +70,7 @@ button:hover{
 
 button:active{
     transform: scale(0.9);
+}
+.hidden{
+    display: none;
 }
