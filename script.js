@@ -5,13 +5,14 @@ const playerScoreUI = document.querySelector("#playerScore");
 const computerScoreUI = document.querySelector("#computerScore");
 
 let playerScore = 0, computerScore = 0;
+let gameOver = false;
 
 const buttons = document.querySelectorAll(".choice");
 buttons.forEach(button => {
     button.addEventListener("click", () =>{
         let result = playRound(button.id, computerPlay());
-        console.log("hello there")
-        winner.textContent = checkWinner(result);
+        result = checkWinner(result);
+        winner.textContent = result;
         winner.classList.remove("hidden");
     });
 });
@@ -41,7 +42,6 @@ function playRound(playerSelection, computerSelection){
         
         computerScore++;
         updateScore();
-        checkWinner();
         return `You Lose the Round! ${computerSelection} beats ${playerSelection}`
     }
     //Check all cases where the player wins
@@ -51,7 +51,6 @@ function playRound(playerSelection, computerSelection){
         
         playerScore++;
         updateScore();
-        checkWinner();
         return `You Win the Round! ${playerSelection} beats ${computerSelection}`
     }
         return "Invalid Input! No one wins!"
@@ -81,7 +80,19 @@ function updateScore(){
 }
 
 function checkWinner(result){
-    if (playerScore !== 5 && computerScore !== 5) return result;
+    if(playerScore === 5){
+        playerScore = 0;
+        computerScore = 0;
+        return "You Won the Game!"
+    }
+    else if(computerScore === 5){
+        playerScore = 0;
+        computerScore = 0;
+        return "You lost the Game!"
+    }
+    else{
+        return result;
+    }
 }
 
 
