@@ -10,7 +10,9 @@ const buttons = document.querySelectorAll(".choice");
 buttons.forEach(button => {
     button.addEventListener("click", () =>{
         let result = playRound(button.id, computerPlay());
-        console.log(result);
+        console.log("hello there")
+        winner.textContent = checkWinner(result);
+        winner.classList.remove("hidden");
     });
 });
 
@@ -78,7 +80,8 @@ function updateScore(){
     computerScoreUI.textContent = `Computer: ${computerScore}`;
 }
 
-function checkWinner(){
+function checkWinner(result){
+    if (playerScore !== 5 && computerScore !== 5) return result;
 }
 
 

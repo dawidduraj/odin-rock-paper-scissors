@@ -74,3 +74,7 @@ button:active{
 .hidden{
     display: none;
 }
+
+#winner{
+    text-align: center;
+}
